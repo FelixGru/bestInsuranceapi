@@ -1,6 +1,8 @@
 services:
   app:
     image: best_insurance/api:latest
+    platform: linux/arm64
+    
     depends_on:
       - db
     environment:
