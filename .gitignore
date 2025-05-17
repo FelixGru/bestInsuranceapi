@@ -1,0 +1,59 @@
+# Common or project-specific files (example)
+HELP.md
+
+# Gradle Build System
+.gradle/
+build/
+# Ensure the Gradle wrapper JAR is NOT ignored (if you commit it)
+!gradle/wrapper/gradle-wrapper.jar
+# The following lines un-ignore 'build' directories within src, which is very unusual.
+# Typically, you'd want to ignore the entire top-level 'build' directory.
+# Review if these are truly needed; they might indicate an unconventional setup
+# or a misunderstanding of how .gitignore works with build outputs.
+# !**/src/main/**/build/
+# !**/src/test/**/build/
+
+# Maven Build System
+target/
+# Ensure the Maven wrapper JAR is NOT ignored (if you commit it)
+!.mvn/wrapper/maven-wrapper.jar
+# The following lines un-ignore 'target' directories within src, also very unusual.
+# Similar to the 'build/' comments above, review if these are truly needed.
+# !**/src/main/**/target/
+# !**/src/test/**/target/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+# STS might also compile to a bin folder in some configurations
+bin/
+!**/src/main/**/bin/
+!**/src/test/**/bin/
+
+### IntelliJ IDEA ###
+.idea/
+*.iws
+*.iml
+*.ipr
+# IntelliJ's traditional output folder (if not using build system's output exclusively)
+# For Maven projects, IntelliJ usually uses 'target/'.
+# For Gradle projects, IntelliJ usually uses 'build/'.
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/ # For NetBeans integration with Gradle
+# If NetBeans is used with Maven, it will typically respect the target/ directory.
+
+### VS Code ###
+.vscode/
