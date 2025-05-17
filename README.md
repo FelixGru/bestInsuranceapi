@@ -21,3 +21,17 @@ This project is a Spring Boot application that can be built with Maven or Gradle
 ./gradlew bootBuildImage --imageName=best_insurance/api -x test
 ```
 
+## Running with Docker Compose
+
+First build the container image using either the Maven or Gradle command from the previous section. Once the image `best_insurance/api` is available, start all services with:
+
+```bash
+docker compose -f docker/docker-compose.yml up
+```
+
+Use `docker compose -f docker/docker-compose.yml down` to stop the containers. To remove the application image when you are done, run:
+
+```bash
+docker rmi best_insurance/api
+```
+
