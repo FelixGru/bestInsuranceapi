@@ -35,3 +35,22 @@ Use `docker compose -f docker/docker-compose.yml down` to stop the containers. T
 docker rmi best_insurance/api
 ```
 
+## Troubleshooting "No such image" errors
+
+If `docker compose` reports that `best_insurance/api:latest` cannot be found
+even though `docker images` lists it with an implausible creation date
+(for example "45 years ago"), the image metadata is likely corrupted.
+Remove the affected images and rebuild the application image:
+
+```bash
+docker rmi <IMAGE_ID_OF_best_insurance_api>
+docker rmi <IMAGE_ID_OF_paketobuildpacks_builder>
+./gradlew bootBuildImage --imageName=best_insurance/api
+```
+
+After rebuilding, run the compose command again:
+
+```bash
+docker compose -f docker/docker-compose.yml up
+```
+

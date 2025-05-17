@@ -1,7 +1,8 @@
-version: '3.8'
 services:
   app:
-    image: best_insurance/api
+    image: best_insurance/api:latest
+    platform: linux/arm64
+    
     depends_on:
       - db
     environment:
