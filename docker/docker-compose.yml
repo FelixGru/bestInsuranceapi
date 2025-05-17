@@ -1,0 +1,31 @@
+version: '3.8'
+services:
+  app:
+    image: best_insurance/api
+    depends_on:
+      - db
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/best_insurance
+      SPRING_DATASOURCE_USERNAME: bestinsurance
+      SPRING_DATASOURCE_PASSWORD: bestinsurance
+      SPRING_JPA_HIBERNATE_DDL_AUTO: validate
+      BPL_DEBUG_ENABLED: "true"
+      BPL_DEBUG_PORT: 5005
+      BPL_DEBUG_SUSPEND: "false"
+    ports:
+      - "8080:8080"
+      - "5005:5005"
+  db:
+    image: postgres:14.5-alpine
+    environment:
+      POSTGRES_DB: best_insurance
+      POSTGRES_USER: bestinsurance
+      POSTGRES_PASSWORD: bestinsurance
+    ports:
+      - "5432:5432"
+  adminer:
+    image: adminer
+    depends_on:
+      - db
+    ports:
+      - "8081:8080"
