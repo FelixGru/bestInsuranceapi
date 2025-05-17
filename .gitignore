@@ -1,6 +1,11 @@
 # Common or project-specific files (example)
 HELP.md
 
+# Editor and tool artifacts
+.DS_Store
+output.txt
+gradle_output.txt
+
 # Gradle Build System
 .gradle/
 build/
