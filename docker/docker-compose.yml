@@ -1,6 +1,6 @@
 services:
   app:
-    image: best_insurance/api
+    image: best_insurance/api:latest
     depends_on:
       - db
     environment:
