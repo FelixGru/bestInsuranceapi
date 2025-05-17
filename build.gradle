@@ -28,5 +28,9 @@ dependencies {
 }
 
 tasks.named('test') {
-	useJUnitPlatform()
+        useJUnitPlatform()
+}
+
+bootBuildImage {
+        imageName = "best_insurance/api"
 }
