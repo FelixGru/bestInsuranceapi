@@ -1,3 +1,5 @@
+--liquibase formatted sql
+--changeset assistant:001-ddl-definition.sql splitStatements:false
 -- Enable UUID extension if not already enabled
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
