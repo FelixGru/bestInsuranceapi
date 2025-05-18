@@ -1,0 +1,8 @@
+databaseChangeLog:
+  - changeSet:
+      id: initial-schema
+      author: bestDev
+      changes:
+        - sqlFile:
+            path: 001-initial-schema.sql
+            relativeToChangelogFile: true
