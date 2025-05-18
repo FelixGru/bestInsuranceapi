@@ -29,6 +29,19 @@ First build the container image using either the Maven or Gradle command from th
 docker compose -f docker/docker-compose.yml up
 ```
 
+### Checking the logs
+
+During startup, ensure there are no errors. Liquibase should report that its
+changeset executed successfully. Look for a line similar to:
+
+```
+INFO ... liquibase.changelog: ChangeSet db/changelog/001-ddl-definition.sql::001-ddl-definition.sql::jpa_dev ran successfully in 80ms
+```
+
+If you see connection errors instead, verify that the `db` service is running
+and that the environment variables in `docker-compose.yml` match the database
+configuration.
+
 ## Inspecting the database
 
 The `db` service exposes PostgreSQL on port `5432` and `adminer` is
