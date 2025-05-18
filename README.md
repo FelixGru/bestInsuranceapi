@@ -29,6 +29,33 @@ First build the container image using either the Maven or Gradle command from th
 docker compose -f docker/docker-compose.yml up
 ```
 
+### Checking the logs
+
+During startup, ensure there are no errors. Liquibase should report that its
+changeset executed successfully. Look for a line similar to:
+
+```
+INFO ... liquibase.changelog: ChangeSet db/changelog/001-ddl-definition.sql::001-ddl-definition.sql::jpa_dev ran successfully in 80ms
+```
+
+If you see connection errors instead, verify that the `db` service is running
+and that the environment variables in `docker-compose.yml` match the database
+configuration.
+
+## Inspecting the database
+
+The `db` service exposes PostgreSQL on port `5432` and `adminer` is
+available at `http://localhost:8081`.
+
+Connect using any database client (e.g. **psql**, **DBeaver**, or a
+browser for Adminer) with these settings:
+
+- **Host:** `localhost`
+- **Port:** `5432`
+- **Database:** `best_insurance`
+- **Username:** `bestinsurance`
+- **Password:** `bestinsurance`
+
 Use `docker compose -f docker/docker-compose.yml down` to stop the containers. To remove the application image when you are done, run:
 
 ```bash
